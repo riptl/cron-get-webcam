@@ -19,7 +19,7 @@ if len(sys.argv) != 3:
 prefix = sys.argv[1]
 url    = sys.argv[2]
 
-# Get metadata through HEAD request
+# Request picture
 r = requests.get(url, stream=True)
 last_modified = r.headers['last-modified']
 content_type  = r.headers['content-type']
