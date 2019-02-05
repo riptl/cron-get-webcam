@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+#
+# https://github.com/terorie/cron-get-webcam
 
 import calendar
 import email.utils
