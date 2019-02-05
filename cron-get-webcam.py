@@ -18,9 +18,9 @@ prefix = sys.argv[1]
 url    = sys.argv[2]
 
 # Get metadata through HEAD request
-head_r = requests.head(url)
-last_modified = head_r.headers['last-modified']
-content_type  = head_r.headers['content-type']
+r = requests.get(url, stream=True)
+last_modified = r.headers['last-modified']
+content_type  = r.headers['content-type']
 timestamp = email.utils.parsedate(last_modified)
 extension = mimetypes.guess_extension(content_type)
 
@@ -37,7 +37,6 @@ if os.path.exists(fullpath):
 
 # Download new file
 os.makedirs(dirs, exist_ok=True)
-r = requests.get(url, stream=True)
 with open(fullpath, 'wb') as f:
 	shutil.copyfileobj(r.raw, f)
 
