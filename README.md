@@ -18,3 +18,7 @@ watch -n5 cron-get-webcam.py folder http://example.org/webcam-url.jpg
 crontab -e
 * * * * * cron-get-webcam.py folder http://example.org/webcam-url.jpg
 ```
+
+> by terorie, 2019
+>
+> also check out https://github.com/The-Eye-Team and https://the-eye.eu
