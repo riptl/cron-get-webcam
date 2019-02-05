@@ -4,16 +4,17 @@
  * Simple and reliable setup (32 lines of code)
  * Zero config
  * Requirements: `python3` + `requests` + `cron`
+ * One picture per invocation
+ * Only new pictures get saved
+ * Easy folder structure: `yyyy-mm-dd/hhmmss` (UTC)
 
-### Setup
-
+### Watch (every 5 seconds)
 ```sh
-# Download script
-wget https://raw.githubusercontent.com/terorie/cron-get-webcam/master/cron-get-webcam.py
-chmod +x cron-get-webcam.py
-mv cron-get-webcam.py /usr/bin/
+watch -n5 cron-get-webcam.py folder http://example.org/webcam-url.jpg
+```
 
-# Create cron job (replace dir and url)
+### Cron (every minute)
+```sh
 crontab -e
-*/30 * * * * cron-get-webcam.py dir url
+* * * * * cron-get-webcam.py folder http://example.org/webcam-url.jpg
 ```
